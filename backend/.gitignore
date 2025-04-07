@@ -1,0 +1,9 @@
+# Ignore node modules
+node_modules/
+
+# Ignore environment files
+.env
+
+# Ignore system files (optional)
+.DS_Store
+Thumbs.db

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <h1>
+        Todo app
+    </h1>
+   
+    <h2>
+        an app to keep your things organized and make you day more productive!!
+    </h2>
+    <body>
+    {{message}}
+    {{#if edit_id}}
+    <h3>
+        Edit your todo caz that's how you grow!
+    </h3>
+    <form method="post" action="/update_title/{{edit_id}}">
+        <label for="">Activity</label>
+        <input type="text" name="title" value="{{edit_Tasks.title}}">
+        <label for="">description</label>
+        <input type="text" name="description" value="{{edit_Tasks.description}}">
+        <input type="submit"> 
+
+    </form><br>
+    {{else}}
+    <h3>
+        Found a another pending work....add it do it.
+    </h3>
+    <form method="post" action="/store_title">
+        <label for="">Activity</label>
+        <input type="text" name="title">
+        <label for="">description</label>
+        <input type="text" name="description">
+        <input type="submit"> 
+
+    </form><br>
+    {{/if}}
+    
+    <ul>
+        {{#each tasks}}
+        <li>
+            {{this.title}} - {{this.description}} <a href="/?edit_id={{this._id}}">Edit</a> <a href="/?delete_id={{this._id}}" onclick="return confirm('r u sure u finished it?')">Delete</a>
+        </li>
+        {{/each}}
+    </ul>
+    </body>
+</html> 
